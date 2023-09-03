@@ -72,3 +72,7 @@ group :test do
 end
 
 gem "geo_scaffold"
+
+group :production do
+  gem 'pg'
+end
