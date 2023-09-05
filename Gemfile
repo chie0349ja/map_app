@@ -76,3 +76,6 @@ gem "geo_scaffold"
 group :production do
   gem 'pg'
 end
+
+
+gem 'mysql2'

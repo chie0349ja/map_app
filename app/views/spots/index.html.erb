@@ -15,4 +15,4 @@
 <%= link_to "New spot", new_spot_path, data: {turbo: false} %>
 
 
-<script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=YOUR-API-KEY"></script>
+<script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>
