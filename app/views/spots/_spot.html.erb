@@ -1,13 +1,10 @@
 <div id="<%= dom_id spot %>">
   <div class="contents">
     <div>
-      <%= spot.name %>
+      <%= link_to spot.name, spot_path(spot) %>
     </div>
     <div>
       <%= image_tag(url_for(spot.photo), width: '90%') if spot.photo.present? %>
     </div>
   </div>
-
-
-
 </div>
