@@ -33,8 +33,9 @@
     <%= form.file_field :photo, readonly: false %>
   </div>
 
-  <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
-
+  <div>
+    <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+  </div>
 
 </div>
 

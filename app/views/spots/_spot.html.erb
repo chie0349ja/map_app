@@ -1,17 +1,13 @@
 <div id="<%= dom_id spot %>">
-  <p>
-    <strong>Lat:</strong>
-    <%= spot.lat %>
-  </p>
+  <div class="contents">
+    <div>
+      <%= spot.name %>
+    </div>
+    <div>
+      <%= image_tag(url_for(spot.photo), width: '90%') if spot.photo.present? %>
+    </div>
+  </div>
 
-  <p>
-    <strong>Lng:</strong>
-    <%= spot.lng %>
-  </p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= spot.name %>
-  </p>
 
 </div>
