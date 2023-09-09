@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 <%= render "shared/header" %>
-<h1>登録内容の詳細</h1>
+<h2>登録内容の詳細 -show spot-</h2>
 
 <div class="geolonia"
   data-lat=<%= @spot.lat %>
@@ -17,4 +17,4 @@
   <%= button_to "Destroy this spot", @spot, method: :delete %>
 </div>
 
-<script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=YOUR-API-KEY"></script>
+<script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>

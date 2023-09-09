@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<div id="map" style="height:500px;"></div>
+<div id="map" style="height:500px;" data-geolocate-control="on"></div>
 
   <div>
     <%= form.label :lat, style: "display: block" %>
@@ -32,6 +32,11 @@
     <%= form.label :photo, style: "display: block" %>
     <%= form.file_field :photo, readonly: false %>
   </div>
+
+  <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+
+
+</div>
 
   <div>
     <%= form.submit %>

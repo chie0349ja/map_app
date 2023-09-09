@@ -4,6 +4,7 @@ class CreateSpots < ActiveRecord::Migration[7.0]
       t.float :lat
       t.float :lng
       t.string :name
+      t.integer :category_id
 
       t.timestamps
     end

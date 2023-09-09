@@ -79,3 +79,9 @@ end
 
 
 gem 'mysql2'
+
+gem 'bootstrap-sass', '3.3.6'
+gem 'jquery-rails'
+
+
+gem 'active_hash'
