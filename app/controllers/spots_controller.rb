@@ -3,7 +3,7 @@ class SpotsController < ApplicationController
 
   # GET /spots
   def index
-    @spots = Spot.all
+    @spots = Spot.all.order("created_at DESC")
   end
 
   # GET /spots/1

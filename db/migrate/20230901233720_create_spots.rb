@@ -5,7 +5,8 @@ class CreateSpots < ActiveRecord::Migration[7.0]
       t.float :lng
       t.string :name
       t.integer :category_id
-
+      t.text :spots_url     #URLがあればここに記載
+      t.string :value       #育てている野菜の種類など
       t.timestamps
     end
   end

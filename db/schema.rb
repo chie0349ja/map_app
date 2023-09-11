@@ -44,6 +44,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_235903) do
     t.float "lng"
     t.string "name"
     t.integer "category_id"
+    t.text "spots_url"
+    t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
