@@ -11,37 +11,39 @@
     </div>
   <% end %>
 
-<div id="map" style="height:500px;" data-geolocate-control="on"></div>
+  <div class="new_form">
+    <div>
+      <%= form.label :lat, style: "display: block" %>
+      <%= form.text_field :lat, readonly: true, class: "block" %>
+    </div>
 
-  <div>
-    <%= form.label :lat, style: "display: block" %>
-    <%= form.text_field :lat, readonly: true %>
-  </div>
+    <div>
+      <%= form.label :lng, style: "display: block" %>
+      <%= form.text_field :lng, readonly: true, class: "block" %>
+    </div>
 
-  <div>
-    <%= form.label :lng, style: "display: block" %>
-    <%= form.text_field :lng, readonly: true %>
-  </div>
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name, readonly: false %>
+    </div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name, readonly: false %>
-  </div>
+    <div>
+      <%= form.label :photo, style: "display: block" %>
+      <%= form.file_field :photo, readonly: false %>
+    </div>
 
-  <div>
-    <%= form.label :photo, style: "display: block" %>
-    <%= form.file_field :photo, readonly: false %>
-  </div>
+    <div>
+      <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+    </div>
 
-  <div>
-    <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+    <div>
+      <%= form.submit %>
+    </div>
   </div>
+  <div id="map" style="height:500px;" data-geolocate-control="on"></div>
 
 </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>
 
 <script>

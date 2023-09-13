@@ -71,3 +71,12 @@ h2 {
   color: #5b9c40;
 }
 
+/* new_view  */
+.new_form {
+  display: flex;
+}
+
+.block {
+  width: 30px;
+  margin-right: 5px;
+}
