@@ -1,4 +1,3 @@
-<%= render "shared/header" %>
 <h2>編集 -edit spot-</h2>
 
 <%= render "form", spot: @spot %>
@@ -7,7 +6,7 @@
 
 <div>
   <%= link_to "Show this spot", @spot %> |
-  <%= link_to "Back to spots", spots_path %>
+  <%= link_to "Home", spots_path %>
 </div>
 
 <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>

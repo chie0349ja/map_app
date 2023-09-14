@@ -72,9 +72,14 @@ h2 {
 }
 
 /* new_view  */
-.new_form {
+.new_form_1 {
   display: flex;
 }
+
+.new_form_2 {
+  display: flex;
+}
+
 
 .block {
   width: 30px;
