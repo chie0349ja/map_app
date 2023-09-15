@@ -1,15 +1,19 @@
-<p style="color: green"><%= notice %></p>
-<%= render "shared/header" %>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+  <%= render "shared/header" %>
 
-<div class="geolonia" data-geojson="/spots.json" style="height:500px;" data-geolocate-control="on"></div>
+  <div class="geolonia" data-geojson="/spots.json" style="height:500px;" data-geolocate-control="on"></div>
 
-<div id="spots">
-  <% @spots.each do |spot| %>
-    <%= render spot %>
-  <% end %>
+  <div id="spots">
+    <% @spots.each do |spot| %>
+      <%= render spot %>
+    <% end %>
+  </div>
+  
+  <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>
 </div>
 
-<%= link_to "New spot", new_spot_path, data: {turbo: false} %>
-
-
-<script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>
+  <%= link_to(new_spot_path,class: "purchase-btn") do %>
+    <span class="purchase-btn-text">登録する</span>
+    <%= image_tag "icon_new.png", size: "185x50", class: "purchase-btn-icon" %>
+  <% end %>

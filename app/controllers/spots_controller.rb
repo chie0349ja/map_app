@@ -23,6 +23,10 @@ class SpotsController < ApplicationController
   def create
     @spot = Spot.new(spot_params)
 
+    unless @spot.photo.attached?
+      @spot.photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'image.png')), filename: 'image.png', content_type: 'image/png')
+    end
+
     if @spot.save
       redirect_to @spot, notice: "Spot was successfully created."
     else
