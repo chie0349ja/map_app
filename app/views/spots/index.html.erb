@@ -5,9 +5,15 @@
   <div class="geolonia" data-geojson="/spots.json" style="height:400px;" data-geolocate-control="on"></div>
 
   <div id="spots">
-    <% @spots.each do |spot| %>
-      <%= render spot %>
-    <% end %>
+    <% @spots.in_groups_of(3, false) do |spot_group| %>
+      <div class="row">
+        <% spot_group.each do |spot| %> 
+          <div class="col-md-4">
+            <%= render spot %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>    
   </div>
   
   <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>
