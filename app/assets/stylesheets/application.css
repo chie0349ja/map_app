@@ -148,7 +148,6 @@ h2 {
 }
 
 .spot-textarea {
-  width: 85vw;
   height: 100px;
   border-radius: 10px;
   border-color: #5b9c40;
@@ -158,5 +157,5 @@ h2 {
 }
 
 .spot-url {
-  width:85vw;
+  overflow-wrap:break-word;
 }

@@ -4,8 +4,8 @@
 
   <%= form_with(model: @spot, local: true) do |form| %>
     <div class="spot-name"><%= @spot.name %></div>
-    <div class="spot-image"><%= image_tag(@spot.photo, width: '300') %></div>
-    <div class="spot-textarea"><%= simple_format @spot.value %></div>
+    <div class="spot-image"><%= image_tag(@spot.photo, width: '100%') %></div>
+    <div class="spot-textarea"><%= simple_format @spot.value,width: '100%' %></div>
     <div class="spot-url"><%= link_to @spot.spots_url, @spot.spots_url %></div>
   <% end %>
 
