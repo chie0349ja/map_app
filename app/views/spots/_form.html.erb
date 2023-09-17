@@ -29,7 +29,7 @@
   <div class="new_form_2">
     <div>
       <%= form.label :"名前を入力*", style: "display: block" %>
-      <%= form.text_field :name, readonly: false %>
+      <%= form.text_field :name, readonly: false, class:"block-name" %>
     </div>
     <div>
       <%= form.label :"カテゴリ選択*", style: "display: block" %>
@@ -39,11 +39,11 @@
 
   <div>
     <%= form.label :"自由記述_text", style: "display: block" %>
-    <%= form.text_field :value, readonly: false %>
+    <%= form.text_area  :value, readonly: false, class:"block-text" %>
   </div>
   <div>
     <%= form.label :"URL*", style: "display: block" %>
-    <%= form.text_field :spots_url, readonly: false %>
+    <%= form.text_field :spots_url, readonly: false, class:"block-name" %>
   </div>
     
   <div class="btn">

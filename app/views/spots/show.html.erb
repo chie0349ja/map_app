@@ -1,13 +1,12 @@
 <div class="container">
-  <p style="color: green"><%= notice %></p>
 
   <h2>登録内容の詳細 -show spot-</h2>
 
   <%= form_with(model: @spot, local: true) do |form| %>
-    <div><%= @spot.name %></div>
-    <div><%= image_tag(@spot.photo, width: '300') %></div>
-    <div><%= @spot.value %></div>
-    <div><%= @spot.spots_url %></div>
+    <div class="spot-name"><%= @spot.name %></div>
+    <div class="spot-image"><%= image_tag(@spot.photo, width: '300') %></div>
+    <div class="spot-textarea"><%= simple_format @spot.value %></div>
+    <div class="spoy-url"><%= link_to @spot.spots_url, @spot.spots_url %></div>
   <% end %>
 
   <div class="geolonia"

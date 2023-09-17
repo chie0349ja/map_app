@@ -5,10 +5,10 @@
 
   <br>
 
-  <div>
-    <%= link_to "Show this spot", @spot %> |
-    <%= link_to "Home", spots_path %>
-  </div>
+    <%= link_to(spot_path,class: "purchase-btn") do %>
+      <span class="purchase-btn-text">戻る</span>
+      <%= image_tag "back.png", size: "185x50", class: "purchase-btn-icon" %>
+    <% end %>
 
   <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>
 </div>

@@ -53,7 +53,12 @@ class SpotsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_spot
-      @spot = Spot.find(params[:id])
+      #@spot = Spot.find(params[:id])
+      @spot = Spot.find_by(id: params[:id])
+      unless @spot
+        flash[:error] = "Spot not found"
+        redirect_to spot_path
+      end
     end
 
     # Only allow a list of trusted parameters through.

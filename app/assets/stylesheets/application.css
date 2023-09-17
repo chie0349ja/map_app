@@ -89,10 +89,19 @@ h2 {
   display: flex;
 }
 
-
 .block {
   width: 30px;
   margin-right: 5px;
+}
+
+.block-name {
+  width: 60vw;
+  margin-right: 5px;
+}
+
+.block-text {
+  width: 80vw;
+  overflow:auto;
 }
 
 
@@ -128,4 +137,21 @@ h2 {
 
 .btn {
   margin: 5px 0px;
+}
+
+/* show_view */
+
+.spot-name {
+  color: rgb(104, 29, 29);
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+.spot-textarea {
+  width: 90vw;
+  height: 100px;
+  border-radius: 10px;
+  border-color: #5b9c40;
+  border-style: solid;
+  margin-top: 5px;
 }
