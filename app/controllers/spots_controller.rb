@@ -25,7 +25,6 @@ class SpotsController < ApplicationController
 
     unless @spot.photo.attached?
       @spot.photo.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'image.png')), filename: 'image.png', content_type: 'image/png')
-      @spot.photo.variant(resize: "300").processed
     end
 
     if @spot.save

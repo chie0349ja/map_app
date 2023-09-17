@@ -38,7 +38,7 @@
   </div>
 
   <div>
-    <%= form.label :"自由記述", style: "display: block" %>
+    <%= form.label :"自由記述_text", style: "display: block" %>
     <%= form.text_field :value, readonly: false %>
   </div>
   <div>
@@ -46,8 +46,8 @@
     <%= form.text_field :spots_url, readonly: false %>
   </div>
     
-  <div>
-    <%= form.submit %>
+  <div class="btn">
+    <%= form.submit class: "btn btn-success" %>
   </div>
 
   <div id="map" style="height:300px;" data-geolocate-control="on"></div>

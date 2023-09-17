@@ -5,7 +5,7 @@
 
   <%= form_with(model: @spot, local: true) do |form| %>
     <div><%= @spot.name %></div>
-    <div><%= image_tag(@spot.photo, width: '100%') %></div>
+    <div><%= image_tag(@spot.photo, width: '300') %></div>
     <div><%= @spot.value %></div>
     <div><%= @spot.spots_url %></div>
   <% end %>
@@ -16,11 +16,9 @@
     data-zoom=16
     style="height:300px;"><%= marker_content(@spot) %></div>
 
-  <div>
-    <%= link_to "Edit", edit_spot_path(@spot), data: {turbo: false} %> |
-    <%= link_to "Home", spots_path %>
-
-    <%= button_to "Destroy this spot", @spot, method: :delete %>
+  <div class="btn-toolbar">
+    <%= link_to "Edit", edit_spot_path(@spot), data: {turbo: false}, class: "btn btn-primary" %>
+    <%= button_to "Destroy this spot", @spot, method: :delete, class: "btn btn-danger ms-3" %>
   </div>
 
   <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>

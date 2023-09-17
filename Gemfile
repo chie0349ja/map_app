@@ -85,3 +85,5 @@ gem 'jquery-rails'
 
 
 gem 'active_hash'
+
+gem 'pry-rails'
