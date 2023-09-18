@@ -18,6 +18,13 @@ a {
   text-decoration: none;
 }
 
+.H2 {
+  font-size: 20px;
+  font-weight: normal;
+  font-style: italic;
+  color: hwb(298 17% 72%);
+}
+
 .container{
   background-color: beige;
 }
@@ -158,4 +165,44 @@ h2 {
 
 .spot-url {
   overflow-wrap:break-word;
+}
+
+.background-category1 {
+  background-color: hsla(8, 100%, 57%, 0.87);
+  width: 100px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.background-category2 {
+  background-color: #005eff; 
+  width: 100px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.background-category3 {
+  background-color: rgba(41, 67, 41, 0.92);
+  width: 100px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.background-category4 {
+  background-color: #c3c549; 
+  width: 100px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 2px;
+  border-radius: 5px;
 }
