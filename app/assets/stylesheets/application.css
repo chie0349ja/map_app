@@ -87,6 +87,13 @@ h2 {
   color: #5b9c40;
 }
 
+
+/* spots */
+.spots-name {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 /* new_view  */
 .new_form_1 {
   display: flex;
