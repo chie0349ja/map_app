@@ -4,7 +4,7 @@ class Category < ActiveHash::Base
     {id:2, name: '農園'},
     {id:3, name: '産直店'},
     {id:4, name: '園芸店'},
-    {id:5, name: '種'}
+    {id:5, name: 'レストラン'}
   ]
 
   include ActiveHash::Associations

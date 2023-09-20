@@ -175,7 +175,7 @@ h2 {
 }
 
 .background-category1 {
-  background-color: hsla(8, 100%, 57%, 0.87);
+  background-color: hsl(0, 100%, 37%);
   width: 100px;
   color: white;
   font-weight: bold;
@@ -186,7 +186,7 @@ h2 {
 }
 
 .background-category2 {
-  background-color: #005eff; 
+  background-color: #058f40; 
   width: 100px;
   color: white;
   font-weight: bold;
@@ -197,7 +197,7 @@ h2 {
 }
 
 .background-category3 {
-  background-color: rgba(41, 67, 41, 0.92);
+  background-color: rgba(51, 172, 51, 0.92);
   width: 100px;
   color: white;
   font-weight: bold;
@@ -208,7 +208,7 @@ h2 {
 }
 
 .background-category4 {
-  background-color: #c3c549; 
+  background-color: #fcb00c; 
   width: 100px;
   color: white;
   font-weight: bold;
