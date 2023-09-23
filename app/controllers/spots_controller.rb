@@ -1,5 +1,6 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: %i[ show edit update destroy ]
+  before_action :move_to_index, except: [:index, :show]
 
   # GET /spots
   def index
@@ -64,6 +65,12 @@ class SpotsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def spot_params
       params.require(:spot).permit(:lat, :lng, :name, :photo, :category_id, :value, :spots_url)
+    end
+
+    def move_to_index
+      unless user_signed_in?
+        redirect_to action: :index
+      end
     end
 
 end
