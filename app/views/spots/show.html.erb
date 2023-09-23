@@ -10,6 +10,7 @@
     <div class="spot-image"><%= image_tag(@spot.photo, width: '100%') %></div>
     <div class="spot-textarea"><%= simple_format @spot.value,width: '100%' %></div>
     <div class="spot-url"><%= link_to @spot.spots_url, @spot.spots_url %></div>
+    <div class="">投稿者: <%= link_to(@spot.user.nickname,"/users/#{@spot.user.id}") %></div>
   <% end %>
 
   <div class="geolonia"
@@ -19,9 +20,12 @@
     style="height:300px;"><%= marker_content(@spot) %></div>
 
   <div class="btn-toolbar">
-    <%= link_to "Edit", edit_spot_path(@spot), data: {turbo: false}, class: "btn btn-primary" %>
-    <%= button_to "Destroy this spot", @spot, method: :delete, class: "btn btn-danger ms-3" %>
+    <%if user_signed_in? && current_user.id == @spot.user_id %>
+      <%= link_to "Edit", edit_spot_path(@spot), data: {turbo: false}, class: "btn btn-primary" %>
+      <%= button_to "Destroy this spot", @spot, method: :delete, class: "btn btn-danger ms-3" %>
+    <% end %>
   </div>
+
 
   <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>
 </div>

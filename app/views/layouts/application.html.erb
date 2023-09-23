@@ -27,6 +27,7 @@
           <p class="text_nojomapp">nojoマップ ～貸し農園・体験農園共有～</p>
           <% if user_signed_in? %>
             <div class="user_nav">
+              <%= link_to "My投稿", "/users/#{current_user.id}", class:"post" %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post" %>
             </div>
           <% else %>
