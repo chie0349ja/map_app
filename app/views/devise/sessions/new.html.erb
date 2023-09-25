@@ -26,6 +26,9 @@
   <div class='login-btn'>
     <%= f.submit "ログイン" ,class:"login-red-btn" %>
   </div>
+  <div class="register-btn">
+    <%= button_to "LINEでログイン", user_line_omniauth_authorize_path, data: { turbo: false }, method: :post, class:"post" %>
+  </div>
   <div class="link">
     <%= link_to '新規会員登録へ', new_user_registration_path %>
   </div>
