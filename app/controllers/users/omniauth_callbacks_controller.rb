@@ -33,17 +33,24 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def authorization
     sns_info = User.from_omniauth
-
+  end
+  
   private
 
   def authoraization
     sns_info = User.from_omniauth(request.env["omniauth.auth"])
     @user = sns_info[:user]
-    
+
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication
     else
-      render template: 'devise/registrations/new'
+      if @user.save
+        sns_info[:sns].user = @user
+        sns_info[:sns].save!
+        sign_in_and_redirect @user, event: :authentication
+      else
+        redirect_to new_user_registration_path, alert: @user.errors.full_messages.join("\n")
+      end
     end
   end
 end
