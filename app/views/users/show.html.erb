@@ -1,0 +1,18 @@
+<div class="container">
+  <div id="spots">
+    <p><%= @nickname %> さんの投稿一覧</p>
+      <% @spots.in_groups_of(3, false) do |spot_group| %>
+        <div class="row">
+          <% spot_group.each do |spot| %> 
+            <div class="col-md-4">
+              <%= render spot %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>    
+  </div>
+</div>
+<%= link_to(root_path,class: "purchase-btn") do %>
+  <span class="purchase-btn-text">HOMEへ</span>
+  <%= image_tag "home.png", size: "185x50", class: "purchase-btn-icon" %>
+<% end %>

@@ -85,9 +85,11 @@ gem 'jquery-rails'
 
 
 gem 'active_hash'
-
 gem 'pry-rails'
-
 gem 'ransack'
-
 gem "aws-sdk-s3", require: false
+gem 'devise'
+
+gem 'omniauth-line'
+gem 'omniauth-rails_csrf_protection'
+gem 'dotenv-rails'

@@ -1,9 +1,13 @@
 class SpotsController < ApplicationController
+  
   before_action :set_spot, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [:new, :edit, :update,:destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
+  before_action :move_to_index, except: [:index, :show]
 
   # GET /spots
   def index
-    @spots = Spot.all.order("created_at DESC")
+    @spots = Spot.includes(:user).order("created_at DESC")
   end
 
   # GET /spots/1
@@ -63,7 +67,20 @@ class SpotsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def spot_params
-      params.require(:spot).permit(:lat, :lng, :name, :photo, :category_id, :value, :spots_url)
+      params.require(:spot).permit(:lat, :lng, :name, :photo, :category_id, :value, :spots_url).merge(user_id: current_user.id)
+    end
+
+    def move_to_index
+      unless user_signed_in?
+        redirect_to action: :index
+      end
+    end
+
+    def authorize_user!
+      unless @spot.user == current_user
+        flash[:alert] = "You don't have permission to edit this spot."
+        redirect_to root_path
+      end
     end
 
 end

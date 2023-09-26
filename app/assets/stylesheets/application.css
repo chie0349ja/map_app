@@ -53,6 +53,22 @@ a {
   align-items: center;
   font-size: 4vmin;
 }
+.list {
+  padding: 5px;
+}
+
+.post {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(0, 119, 255);
+  border-style: solid;
+  border-radius: 10px;
+  padding: 0px 30px;
+  margin-right: 5px;
+}
+
+
+
+
 
 .body{
   background-color: beige;
@@ -87,6 +103,41 @@ h2 {
   color: #5b9c40;
 }
 
+
+/* user */
+.user-new {
+  color: #fcb00c;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-family: sans-serif;
+}
+
+.user-sign_in {
+  color: #fcb00c;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-family: sans-serif;
+}
+
+.form-group {
+  margin-left: 10px;
+}
+
+.register-btn {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.login-btn{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.link {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 /* spots */
 .spots-name {
@@ -216,4 +267,15 @@ h2 {
   padding: 2px;
   border-radius: 5px;
   margin-top: 5px;
+}
+
+
+/* user */
+
+.text-nickname {
+  color: #058f40;
+}
+
+.register-btn {
+  background-color: aliceblue;
 }
