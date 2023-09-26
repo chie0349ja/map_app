@@ -33,6 +33,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def authorization
     sns_info = User.from_omniauth
+  end
 
   private
 
