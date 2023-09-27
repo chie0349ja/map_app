@@ -15,13 +15,13 @@ class User < ApplicationRecord
     )
 
     if user.new_record?
-      user.nickname = auth.info.name,
+      user.nickname = auth.info.name
       user.email = "line_email@#{auth.uid}.com"
       user.password = Devise.friendly_token[0,20]
       user.save!
       sns.user = user
       sns.save!
-    elsif sns.new_record?
+    elsif sns.new_record? # If SNS credential does not exist for an existing user
       sns.user = user
       sns.save!
     end
