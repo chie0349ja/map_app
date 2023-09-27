@@ -10,13 +10,18 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
     user = User.where(email:"line_email@#{auth.uid}.com").first_or_initialize(
-      nickname: auth.info.name,
-      email: "line_email@#{auth.uid}.com"
+      #nickname: auth.info.name,
+      #email: "line_email@#{auth.uid}.com"
     )
 
     if user.new_record?
+      user.nickname = auth.info.name,
+      user.email = "line_email@#{auth.uid}.com"
       user.password = Devise.friendly_token[0,20]
       user.save!
+      sns.user = user
+      sns.save!
+    elsif sns.new_record?
       sns.user = user
       sns.save!
     end
