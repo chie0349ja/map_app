@@ -213,7 +213,7 @@ h2 {
 }
 
 .spot-textarea {
-  height: 100px;
+  height: auto;
   border-radius: 10px;
   border-color: #5b9c40;
   border-style: solid;
