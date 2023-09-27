@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
     if user.new_record?
       user.password = Devise.friendly_token[0,20]
+      user.save!
       sns.user = user
       sns.save!
     end
