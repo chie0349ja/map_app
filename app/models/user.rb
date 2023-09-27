@@ -8,25 +8,28 @@ class User < ApplicationRecord
   has_many :sns_credentials
 
   def self.from_omniauth(auth)
-    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
-    user = User.find_or_initialize_by(email: "line_email@#{auth.uid}.com")
-    #user = User.where(email:"line_email@#{auth.uid}.com").first_or_initialize(
-      #nickname: auth.info.name,
-      #email: "line_email@#{auth.uid}.com"
-    #)
-
-    if user.new_record?
-      user.nickname = auth.info.name
-      user.email = "line_email@#{auth.uid}.com"
-      user.password = Devise.friendly_token[0,20]
-      user.save!
-      sns.user = user
-      sns.save!
-    elsif sns.new_record? # If SNS credential does not exist for an existing user
-      sns.user = user
-      sns.save!
+    # SnsCredentialから既存の認証情報を取得
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_initialize
+  
+    # すでにSNS認証情報が保存されている場合は、その関連するユーザーを取得
+    if sns.persisted?
+      user = sns.user
+    else
+      # 新規のSNS認証の場合、メールアドレスでユーザーを検索または初期化
+      user = User.where(email:"line_email@#{auth.uid}.com").first_or_initialize(
+        nickname: auth.info.name,
+        email: "line_email@#{auth.uid}.com"
+      )
+  
+      # 新規ユーザーの場合、ランダムなパスワードを設定して保存
+      if user.new_record?
+        user.password = Devise.friendly_token[0,20]
+        user.save!
+        sns.user = user
+        sns.save!
+      end
     end
-
+  
     { user: user, sns: sns }
   end
 end
