@@ -9,10 +9,11 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
-    user = User.where(email:"line_email@#{auth.uid}.com").first_or_initialize(
+    user = User.find_or_initialize_by(email: "line_email@#{auth.uid}.com")
+    #user = User.where(email:"line_email@#{auth.uid}.com").first_or_initialize(
       #nickname: auth.info.name,
       #email: "line_email@#{auth.uid}.com"
-    )
+    #)
 
     if user.new_record?
       user.nickname = auth.info.name
