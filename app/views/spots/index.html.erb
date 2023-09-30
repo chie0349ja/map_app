@@ -1,3 +1,24 @@
+<%= search_form_for @q, url: search_spots_path, html: {id: "detailed-search-form"},method: :get do |f| %>
+  <div class="search-field">
+    <%= f.label :name_cont, 'キーワードを入力' %>
+    <br>
+    <%= f.text_field :name_cont, placeholder: 'キーワードで探す', class: "search-field-input" %>
+  </div>
+
+  <div class="search-field">
+    <%#= select_tag "q[category_id_eq]",options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:q]&.[](:category_id_eq)), include_blank: "--- カテゴリ ---", class: "form-control" %>
+  </div>
+
+  <div class="search-field">
+    <%= f.submit "検索", class: "btn btn-primary", id: "search-button" %>
+  </div>
+
+  <div class="search-field">
+    <%= link_to "クリア", spots_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>
+
+
 <div class="container">
   <%#= render "shared/header" %>
   <div class="geolonia" data-geojson="/spots.json" style="height:400px;" data-geolocate-control="on"></div>

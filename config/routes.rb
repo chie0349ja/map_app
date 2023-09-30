@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
-  resources :spots
+  resources :spots do
+    collection do
+      get 'search'
+    end
+  end
   resources :users, only:[:show, :destroy]
   
   # Defines the root path route ("/")

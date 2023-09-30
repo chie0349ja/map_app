@@ -195,6 +195,25 @@ h2 {
   width: 100%;
 }
 
+.spot_search {
+  display: flex;
+  justify-content: space-around;
+  margin:5px;
+  color: darkgreen;
+
+}
+
+.search-field {
+  width: 30vw;
+}
+
+.search-field-input {
+  border:#058f40;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+
 /* edit_view */
 .btn-toolbar {
   margin: 10px 0px;
@@ -223,6 +242,7 @@ h2 {
 
 .spot-url {
   overflow-wrap:break-word;
+  margin: 0px 10px 0px 10px;
 }
 
 .background-category1 {
@@ -279,3 +299,4 @@ h2 {
 .register-btn {
   background-color: aliceblue;
 }
+
