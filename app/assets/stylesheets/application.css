@@ -200,19 +200,37 @@ h2 {
   justify-content: space-around;
   margin:5px;
   color: darkgreen;
+  align-items: center;
 
 }
 
 .search-field {
-  width: 30vw;
+  margin-left: 5px;
 }
 
 .search-field-input {
   border:#058f40;
   border-style: solid;
   border-radius: 5px;
+  width: 30vw;
 }
 
+.search-field-select {
+  width: 30vw;
+  border:#058f40;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.search-btn {
+  padding: 5px 5px 5px 5px;
+  border:#058f40;
+  background-color: #058f40;
+  color: white;
+  border-style: solid;
+  border-radius: 5px;
+  width: 10vw;
+}
 
 /* edit_view */
 .btn-toolbar {

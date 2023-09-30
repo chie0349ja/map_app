@@ -6,15 +6,17 @@
   </div>
 
   <div class="search-field">
-    <%#= select_tag "q[category_id_eq]",options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:q]&.[](:category_id_eq)), include_blank: "--- カテゴリ ---", class: "form-control" %>
+    <%= f.label :name_cont, 'カテゴリ選択' %>
+    <br>
+    <%= select_tag "q[category_id_eq]",options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:q]&.[](:category_id_eq)), include_blank: "--- カテゴリ ---", class: "search-field-select" %>
   </div>
 
-  <div class="search-field">
-    <%= f.submit "検索", class: "btn btn-primary", id: "search-button" %>
+  <div class="search-btn-field">
+    <%= f.submit "検索", class: "search-btn", id: "search-button" %>
   </div>
 
-  <div class="search-field">
-    <%= link_to "クリア", spots_path, class: "btn btn-secondary" %>
+  <div class="search-btn-field">
+    <%= link_to "クリア", spots_path, class: "search-btn" %>
   </div>
 <% end %>
 
