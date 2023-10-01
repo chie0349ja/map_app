@@ -5,15 +5,15 @@
 
 <%= search_form_for @q, url: search_spots_path, html: {id: "detailed-search-form"},method: :get do |f| %>
   <div class="search-field">
-    <%= f.label :name_cont, 'キーワードを入力' %>
+    <%= f.label :name_cont, 'キーワード?' %>
     <br>
     <%= f.text_field :name_cont, placeholder: 'キーワードで探す', class: "search-field-input" %>
   </div>
 
   <div class="search-field">
-    <%= f.label :name_cont, 'カテゴリ選択' %>
+    <%= f.label :name_cont, 'カテゴリ?' %>
     <br>
-    <%= select_tag "q[category_id_eq]",options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:q]&.[](:category_id_eq)), include_blank: "--- カテゴリ ---", class: "search-field-select" %>
+    <%= select_tag "q[category_id_eq]",options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:q]&.[](:category_id_eq)), include_blank: "--カテゴリ--", class: "search-field-select" %>
   </div>
 
   <div class="search-btn-field">
