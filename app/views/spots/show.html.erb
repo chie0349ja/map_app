@@ -3,7 +3,7 @@
   <h2 class="H2">登録内容の詳細 -show spot-</h2>
 
   <%= form_with(model: @spot, local: true) do |form| %>
-    <div class="spot-category <%= 'background-category1' if @spot.category.name == '農園' %> <%= 'background-category2' if @spot.category.name == '産直店' %> <%= 'background-category3' if @spot.category.name == '園芸店'  %> <%= 'background-category4' if @spot.category.name == '種' %>">
+    <div class="spot-category <%= 'background-category1' if @spot.category.name == '農園' %> <%= 'background-category2' if @spot.category.name == '産直店' %> <%= 'background-category3' if @spot.category.name == '園芸店'  %> <%= 'background-category4' if @spot.category.name == 'レストラン' %>">
       <%= @spot.category.name %>
     </div>
     <div class="spot-name"><%= @spot.name %></div>

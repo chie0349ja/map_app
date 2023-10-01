@@ -34,7 +34,7 @@
     </div>
     <div>
       <%= form.label :"カテゴリ選択*", style: "display: block" %>
-      <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+      <%= form.collection_select(:category_id, Category.all, :id, :name, { include_blank: '---' }, {class:"category-select"}) %>
     </div>
   </div>
 

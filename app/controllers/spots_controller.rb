@@ -7,7 +7,18 @@ class SpotsController < ApplicationController
 
   # GET /spots
   def index
-    @spots = Spot.includes(:user).order("created_at DESC")
+    @q = Spot.ransack(params[:q])
+
+    if params[:q] && (params[:q][name_cont].present? || params[:q][:category].present?)
+      @spots = @q.result(distinct: true).includes(:user).order("created_at DESC")
+    else
+      @spots = Spot.includes(:user).order("created_at DESC")
+    end
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # GET /spots/1
@@ -51,6 +62,12 @@ class SpotsController < ApplicationController
   def destroy
     @spot.destroy
     redirect_to spots_url, notice: "Spot was successfully destroyed.", status: :see_other
+  end
+
+  def search
+    @q = Spot.ransack(params[:q])
+    @spots = @q.result.includes(:user).order("created_at DESC")
+    render 'index'
   end
 
   private
