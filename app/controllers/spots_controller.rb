@@ -8,7 +8,17 @@ class SpotsController < ApplicationController
   # GET /spots
   def index
     @q = Spot.ransack(params[:q])
-    @spots = @q.result(distinct: true).includes(:user).order("created_at DESC")
+
+    if params[:q] && (params[:q][name_cont].present? || params[:q][:category].present?)
+      @spots = @q.result(distinct: true).includes(:user).order("created_at DESC")
+    else
+      @spots = Spot.includes(:user).order("created_at DESC")
+    end
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # GET /spots/1

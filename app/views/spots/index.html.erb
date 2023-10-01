@@ -1,3 +1,8 @@
+<div class="container">
+  <%#= render "shared/header" %>
+  <div class="geolonia" data-geojson="/spots.json" style="height:400px;" data-geolocate-control="on"></div>
+</div>
+
 <%= search_form_for @q, url: search_spots_path, html: {id: "detailed-search-form"},method: :get do |f| %>
   <div class="search-field">
     <%= f.label :name_cont, 'キーワードを入力' %>
@@ -21,10 +26,7 @@
 <% end %>
 
 
-<div class="container">
-  <%#= render "shared/header" %>
-  <div class="geolonia" data-geojson="/spots.json" style="height:400px;" data-geolocate-control="on"></div>
-
+<div class="container"> 
   <div id="spots">
     <% @spots.in_groups_of(3, false) do |spot_group| %>
       <div class="row">
@@ -36,11 +38,12 @@
       </div>
     <% end %>    
   </div>
-  
-  <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>
 </div>
 
   <%= link_to(new_spot_path,class: "purchase-btn") do %>
     <span class="purchase-btn-text">登録する</span>
     <%= image_tag "icon_new.png", size: "185x50", class: "purchase-btn-icon" %>
   <% end %>
+
+    <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>
+
