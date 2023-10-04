@@ -314,7 +314,12 @@ h2 {
   color: #058f40;
 }
 
-.register-btn {
-  background-color: aliceblue;
+.post {
+  border-style: none;
+  background-color:beige;
+}
+
+.post img {
+  width: 150px;
 }
 
