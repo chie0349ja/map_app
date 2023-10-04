@@ -20,32 +20,14 @@
   </head>
 
   <body>
-    <div class="navbar ">          <%# 必要なければ消す navbar-fixed-top navbar-expand-lg navbar-dark bg-5b9c40 %>
-      <div class="contatner-fluid">
-        <%= link_to image_tag("habit_logo.png", class:'nojosan-icon'), "/" %>
-        <div class="app_name">
-          <p class="text_nojomapp">nojoマップ ～貸し農園・体験農園共有～</p>
-          <% if user_signed_in? %>
-            <div class="user_nav">
-              <%= link_to "My投稿", "/users/#{current_user.id}", class:"post" %>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post" %>
-            </div>
-          <% else %>
-            <div class="list">
-              <%= link_to "ログイン", new_user_session_path, class: "post" %>
-              <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    
 
       <%= yield %>
     
     <footer class="footer">
       <div class="footer-container">
-        <span class="text-muted">畑 -habit-</span>
         <div class="nav-contents">
+          <a class="nav-link active" aria-current="page" href="/">畑 -habit-</a>
           <a class="nav-link active" aria-current="page" href="#">このアプリについて</a>
           <a class="nav-link active" aria-current="page" href="#">サイトポリシー</a>
         </div>
