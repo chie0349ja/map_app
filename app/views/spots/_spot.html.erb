@@ -7,7 +7,9 @@
       <%= link_to spot.name, spot_path(spot) %>
     </div>
     <div>
-      <%= image_tag(url_for(spot.photo), width: '100%') if spot.photo.present? %>
+      <%= link_to spot do %>
+        <%= image_tag(url_for(spot.photo), width: '100%') if spot.photo.present? %>
+      <% end %>
     </div>
   </div>
 </div>
