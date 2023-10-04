@@ -1,3 +1,5 @@
+<%= render "shared/header" %>
+
 <%= form_with model: @user, url:user_session_path, class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
@@ -28,8 +30,10 @@
   </div>
 </div>
 <% end %>
-<div class="register-btn">
-  <%= button_to "LINEでログイン", user_line_omniauth_authorize_path, data: { turbo: false }, method: :post, class:"post" %>
+<div class="line-btn">
+  <%= button_to user_line_omniauth_authorize_path, data: { turbo: false }, method: :post, class: "post" do %>
+    <%= image_tag "btn_login_base.png", alt: "LINEでログイン", class: "line_login" %>
+  <% end %>
 </div>
 <div class="link">
   <%= link_to '新規会員登録へ', new_user_registration_path %>

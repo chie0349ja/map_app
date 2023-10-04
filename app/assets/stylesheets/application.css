@@ -126,6 +126,7 @@ h2 {
 .register-btn {
   margin-left: 10px;
   margin-top: 10px;
+
 }
 
 .login-btn{
@@ -137,6 +138,10 @@ h2 {
   margin-left: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.line-btn {
+  margin: 10px 10px 10px 20px;
 }
 
 /* spots */
@@ -314,7 +319,12 @@ h2 {
   color: #058f40;
 }
 
-.register-btn {
-  background-color: aliceblue;
+.post {
+  border-style: none;
+  background-color:beige;
+}
+
+.post img {
+  width: 150px;
 }
 
