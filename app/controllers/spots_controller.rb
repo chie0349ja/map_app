@@ -3,13 +3,14 @@ class SpotsController < ApplicationController
   before_action :set_spot, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: [:new, :edit, :update,:destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   # GET /spots
   def index
     @q = Spot.ransack(params[:q])
+    @params = params
 
-    if params[:q] && (params[:q][name_cont].present? || params[:q][:category].present?)
+    if params[:q] && (params[:q][:name_cont].present? || params[:q][:category_id_eq].present?)
       @spots = @q.result(distinct: true).includes(:user).order("created_at DESC")
     else
       @spots = Spot.includes(:user).order("created_at DESC")
@@ -66,6 +67,7 @@ class SpotsController < ApplicationController
 
   def search
     @q = Spot.ransack(params[:q])
+    @params = params
     @spots = @q.result.includes(:user).order("created_at DESC")
     render 'index'
   end
