@@ -6,6 +6,7 @@
     <h2 class='user-new'>
       会員情報の登録
     </h2>
+    <label class="caution"><%= image_tag("tomato.png", class:"tomato-icon") %>は必須入力です</label>
   </div>
 
   <%= render 'shared/error_messages', model: f.object %>
@@ -13,21 +14,21 @@
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">ニックネーム</label>
-      <span class="indispensable">必須</span>
+      <span><%= image_tag("tomato.png", class:"tomato-icon") %></span>
     </div>
-    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) nojoさん", maxlength:"40" %>
+    <%= f.text_field :nickname, class:"input-default", id:"nickname", placeholder:"例) nojoさん", maxlength:"40" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">メールアドレス</label>
-      <span class="indispensable">必須</span>
+      <span><%= image_tag("tomato.png", class:"tomato-icon") %></span>
     </div>
     <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">パスワード</label>
-      <span class="indispensable">必須</span>
+      <span><%= image_tag("tomato.png", class:"tomato-icon") %></span>
     </div>
     <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
     <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
@@ -35,7 +36,7 @@
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">パスワード(確認)</label>
-      <span class="indispensable">必須</span>
+      <span><%= image_tag("tomato.png", class:"tomato-icon") %></span>
     </div>
     <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
   </div>
@@ -43,14 +44,15 @@
   <div class='register-btn'>
     <%= f.submit "会員登録" ,class:"register-red-btn" %>
   </div>
-  <div class="link">
-    <%= link_to '会員登録済みの方はログインへ', new_user_session_path %>
-  </div>
+  
 </div>
 <% end %>
-
 <div class="line-btn">
+  <label class="caution-line">LINEでログインされる場合はこちらから</label>
   <%= button_to user_line_omniauth_authorize_path, data: { turbo: false }, method: :post, class: "post" do %>
     <%= image_tag "btn_login_base.png", alt: "LINEでログイン", class: "line_login" %>
   <% end %>
+</div>
+<div class="link">
+    <%= link_to '会員登録済みの方はログインへ', new_user_session_path %>
 </div>

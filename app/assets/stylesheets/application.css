@@ -141,7 +141,7 @@ h2 {
 }
 
 .line-btn {
-  margin: 10px 10px 10px 20px;
+  margin: 10px 10px 20px 10px;
 }
 
 /* spots */
@@ -328,3 +328,32 @@ h2 {
   width: 150px;
 }
 
+.tomato-icon {
+  width:20px;
+}
+
+.caution {
+  margin-left: 10px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: rgb(104, 29, 29);
+}
+
+.form-text-wrap {
+  font-size: 20px;
+  color: rgb(104, 29, 29);
+}
+
+.login-red-btn {
+  padding: 5px;
+}
+
+.caution-line {
+  margin: 20px 0px 0px 10px;
+  font-size: 20px;
+  color: rgb(104, 29, 29);
+}
+
+.input-default {
+  width: 70%;
+}
