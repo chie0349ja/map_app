@@ -1,7 +1,11 @@
 <%= render "shared/header" %>
 
 <div class="container">
+  <% if @params[:q] %>
+  <div class="geolonia" data-geojson="/spots.json?q[name_cont]=<%= @params["q"]["name_cont"]%>&q[category_id_eq]=<%= @params["q"]["category_id_eq"] %>" style="height:400px;" data-geolocate-control="on"></div>
+  <% else %>
   <div class="geolonia" data-geojson="/spots.json" style="height:400px;" data-geolocate-control="on"></div>
+  <% end %>
 </div>
 
 <%= search_form_for @q, url: search_spots_path, html: {id: "detailed-search-form"},method: :get do |f| %>
@@ -20,7 +24,7 @@
   <div class="search-btn-field">
     <%= f.submit "検索", class: "search-btn", id: "search-button" %>
   </div>
-
+  
   <div class="search-btn-field">
     <%= link_to "クリア", spots_path, class: "search-btn" %>
   </div>
