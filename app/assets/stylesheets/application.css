@@ -357,3 +357,28 @@ h2 {
 .input-default {
   width: 70%;
 }
+
+
+/* policy */
+.h2-head {
+  color: rgb(0, 108, 180);
+}
+
+.h2-text {
+  color: #890000;
+}
+
+.wrap-policy{
+  margin: 10px;
+  border-radius: 10px;
+  border-style: dashed;
+  border-color: #058f40;
+}
+
+.wrap-policy-list {
+  margin: 20px 10px;
+} 
+
+.vegetables-icon {
+  width: 200px;
+}
