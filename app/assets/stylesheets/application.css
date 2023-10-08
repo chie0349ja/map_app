@@ -151,12 +151,41 @@ h2 {
 }
 
 /* new_view  */
+.required {
+  color: brown;
+}
+
+.new-form-wrap {
+  border-color: #058f40;
+  border-style: dashed;
+  border-radius: 5px;
+  padding: 5px;
+}
 .new_form_1 {
   display: flex;
+  margin-bottom: 15px;
+}
+
+.lat, .lng {
+  display: none;
 }
 
 .new_form_2 {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.new_form_3 {
   display: flex;
+  margin-bottom: 15px;
+}
+
+.new_form_4 {
+  margin-bottom: 15px;
+}
+
+.new_form_5 {
+  margin-bottom: 15px;
 }
 
 .block {
