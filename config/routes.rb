@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :users, only:[:show, :destroy]
 
   get '/policy', to: 'application#policy'
+  get '/use', to: 'application#use'
   
   # Defines the root path route ("/")
   root to: "spots#index"
