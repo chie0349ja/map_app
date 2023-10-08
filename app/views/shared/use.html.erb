@@ -1,0 +1,71 @@
+<%= render "shared/header" %>
+
+<article class="wrap-use">
+  <h2 class="h2-head">habit マップアプリの使い方</h2>
+  <div class="discription">
+    このマップアプリは、全国のまだ行ったことない関連情報がマップ上で手軽にチェックできたり、
+    共有したい情報をマッピングしてみんなで共有するためのアプリです。
+  </div>
+
+  <section class="top">
+    <h4 class="h4-text">①トップ画面<h4>
+    <%= image_tag("top.png", class:"use-img") %>
+    <ul class="ul-list">
+      <li>①ログイン・新規登録画面へ遷移します</li>
+      <li>②スポットをクリックすると名前と画像がポップアップされクリックすると詳細画面へ遷移します</li>
+      <li>③キーワードやカテゴリでスポットを絞り込み検索できます</li>
+      <li>④ログインしている場合は登録画面へ遷移します</li>
+      <li>⑤一覧が表示されます</li>
+      <li><span><%= image_tag("position.png", class:"position-img") %></span>を押すと現在の位置情報を取得し地図が移動します</li>
+    </ul>
+  </section>
+
+  <section class="show">
+    <h4 class="h4-text">②詳細表示<h4>
+    <%= image_tag("show.png", class:"use-img") %>
+      <ul class="ul-list">
+        <li>①スポットの名前</li>
+        <li>②画像が登録されている場合は表示されます</li>
+        <li>③コメント等があれば表示されます</li>
+        <li>④スポットのURLがあれば表示されクリックするとそのサイトに遷移します</li>
+        <li>⑤投稿者をクリックするとその投稿者の投稿一覧画面へ遷移します</li>
+      </ul>
+  </section>
+
+  <section class="new">
+    <h4 class="h4-text">③新規画面<h4>
+    <%= image_tag("new.png", class:"use-img") %>
+      <ul class="ul-list">
+        <li>①地図をタップして地点を選択します</li>
+        <li>②画像があればクリックして選択します</li>
+        <li>③スポットの名前を記入します</li>
+        <li>④カテゴリを選択します</li>
+        <li>⑤コメントやメモ、住所などを記入します</li>
+        <li>⑥URLなどがあれば記入します</li>
+        <li>最後に登録ボタンをクリックして登録します（必須項目が入力されていない場合はエラーが表示されます）</li>
+      </ul>
+  </section>
+
+  <section class="edit">
+    <h4 class="h4-text">④編集・削除<h4>
+    <%= image_tag("edit.png", class:"use-img") %>
+      <ul class="ul-list">
+        <li>自身が投稿したもののみ、詳細表示画面から編集・削除が出来ます</li>
+        <li>①編集画面へ遷移します</li>
+        <li>②削除されトップ画面へ遷移します</li>
+      </ul>
+  </section>
+
+  <section class="showall">
+    <h4 class="h4-text">⑤投稿一覧<h4>
+    <p class="section-text">トップ画面ユーザー管理の「my投稿」ボタンまたは、詳細画面の投稿者をクリックするとその投稿者一覧の画面へ遷移します</p>
+    <%= image_tag("showall.png", class:"use-img") %>
+  </section>
+
+  <div class="img-agriculture"><%= image_tag("agriculture.png", class:"agriculture-icon") %></div>
+</article>
+
+<%= link_to(root_path,class: "purchase-btn") do %>
+    <span class="purchase-btn-text">HOMEへ</span>
+    <%= image_tag "home.png", size: "185x50", class: "purchase-btn-icon" %>
+<% end %>

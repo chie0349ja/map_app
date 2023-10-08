@@ -405,12 +405,13 @@ h2 {
   color: rgb(0, 108, 180);
 }
 
-.h2-text {
+.h2-text, .h4-text {
   color: #890000;
 }
 
-.wrap-policy{
+.wrap-policy, .wrap-use{
   margin: 10px;
+  padding: 10px;
   border-radius: 10px;
   border-style: dashed;
   border-color: #058f40;
@@ -422,4 +423,31 @@ h2 {
 
 .vegetables-icon {
   width: 200px;
+}
+
+/* use */
+.discription {
+  margin-bottom: 10px;
+}
+
+.img-agriculture {
+  text-align:  center; 
+}
+
+.agriculture-icon {
+  width: 70%;
+  display: inline-block;  
+}
+
+.use-img {
+  width: 90%;
+}
+
+.position-img {
+  width: 15px;
+}
+
+.ul-list, .section-text {
+  font-size: 16px;
+  font-weight: normal;
 }

@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
     render 'shared/policy'
   end
 
+  def use
+    render 'shared/use'
+  end
+
   private
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
