@@ -151,12 +151,41 @@ h2 {
 }
 
 /* new_view  */
+.required {
+  color: brown;
+}
+
+.new-form-wrap {
+  border-color: #058f40;
+  border-style: dashed;
+  border-radius: 5px;
+  padding: 5px;
+}
 .new_form_1 {
   display: flex;
+  margin-bottom: 15px;
+}
+
+.lat, .lng {
+  display: none;
 }
 
 .new_form_2 {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.new_form_3 {
   display: flex;
+  margin-bottom: 15px;
+}
+
+.new_form_4 {
+  margin-bottom: 15px;
+}
+
+.new_form_5 {
+  margin-bottom: 15px;
 }
 
 .block {
@@ -178,14 +207,15 @@ h2 {
 /* index_view  */
 
 .purchase-btn {
-  width: 90px;
+  width: 85px;
   background: rgb(105, 57, 52);
   text-align: center;
   border-radius: 10%;
   bottom: 10px;
-  right: 2px;
+  right: 10px;
   position: fixed;
-  padding: 15px;
+  z-index: 10000;
+  padding: 10px;
 }
 
 .purchase-btn-text {
@@ -197,7 +227,7 @@ h2 {
 }
 
 .purchase-btn-icon {
-  width: 100%;
+  width: 90%;
 }
 
 .spot_search {
@@ -210,18 +240,18 @@ h2 {
 }
 
 .search-field {
-  margin-left: 5px;
+  margin: 5px 0 5px 5px;
 }
 
 .search-field-input {
   border:#058f40;
   border-style: solid;
   border-radius: 5px;
-  width: 30vw;
+  width: 50vw;
 }
 
 .search-field-select {
-  width: 25vw;
+  width: 40vw;
   border:#058f40;
   border-style: solid;
   border-radius: 5px;
@@ -229,12 +259,23 @@ h2 {
 
 .search-btn {
   padding: 5px 5px 5px 5px;
-  border:#058f40;
-  background-color: #058f40;
+  background-color: #1455b6;
   color: white;
   border-style: solid;
   border-radius: 5px;
   width: 15vw;
+}
+.clear-btn {
+  padding: 5px 5px 5px 5px;
+  background-color: #1455b6;
+  color: white;
+  border-style: solid;
+  border-radius: 5px;
+  width: 15vw;
+}
+
+.clear-btn-name {
+  color: white;
 }
 
 /* edit_view */
@@ -356,4 +397,29 @@ h2 {
 
 .input-default {
   width: 70%;
+}
+
+
+/* policy */
+.h2-head {
+  color: rgb(0, 108, 180);
+}
+
+.h2-text {
+  color: #890000;
+}
+
+.wrap-policy{
+  margin: 10px;
+  border-radius: 10px;
+  border-style: dashed;
+  border-color: #058f40;
+}
+
+.wrap-policy-list {
+  margin: 20px 10px;
+} 
+
+.vegetables-icon {
+  width: 200px;
 }

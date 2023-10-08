@@ -1,6 +1,7 @@
 <%= render "shared/header" %>
 <div class="container">
-  <h2 class="H2">新規登録 -new spot-</h2>
+  <h2 class="H2">新規スポット登録</h2>
+  <p class="required"><span><%= image_tag("tomato.png", class:"tomato-icon") %></span>は必須項目です</p>
 
   <%= render "form", spot: @spot %>
 

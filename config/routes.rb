@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only:[:show, :destroy]
+
+  get '/policy', to: 'application#policy'
   
   # Defines the root path route ("/")
   root to: "spots#index"

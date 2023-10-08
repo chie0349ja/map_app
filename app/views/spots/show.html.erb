@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <div class="container">
 
-  <h2 class="H2">登録内容の詳細 -show spot-</h2>
+  <h2 class="H2">登録内容の詳細</h2>
 
   <%= form_with(model: @spot, local: true) do |form| %>
     <div class="spot-category <%= 'background-category1' if @spot.category.name == '農園' %> <%= 'background-category2' if @spot.category.name == '産直店' %> <%= 'background-category3' if @spot.category.name == '園芸店'  %> <%= 'background-category4' if @spot.category.name == 'レストラン' %>">
@@ -22,8 +22,8 @@
 
   <div class="btn-toolbar">
     <%if user_signed_in? && current_user.id == @spot.user_id %>
-      <%= link_to "Edit", edit_spot_path(@spot), data: {turbo: false}, class: "btn btn-primary" %>
-      <%= button_to "Destroy this spot", @spot, method: :delete, class: "btn btn-danger ms-3" %>
+      <%= link_to "編集", edit_spot_path(@spot), data: {turbo: false}, class: "btn btn-primary" %>
+      <%= button_to "投稿削除", @spot, method: :delete, class: "btn btn-danger ms-3" %>
     <% end %>
   </div>
 

@@ -2,32 +2,32 @@
 
 <div class="container">
   <% if @params[:q] %>
-  <div class="geolonia" data-geojson="/spots.json?q[name_cont]=<%= @params["q"]["name_cont"]%>&q[category_id_eq]=<%= @params["q"]["category_id_eq"] %>" style="height:400px;" data-geolocate-control="on"></div>
+  <div class="geolonia" data-geojson="/spots.json?q[name_cont]=<%= @params["q"]["name_cont"]%>&q[category_id_eq]=<%= @params["q"]["category_id_eq"] %>" style="height:300px;" data-geolocate-control="on"></div>
   <% else %>
-  <div class="geolonia" data-geojson="/spots.json" style="height:400px;" data-geolocate-control="on"></div>
+  <div class="geolonia" data-geojson="/spots.json" style="height:300px;" data-geolocate-control="on"></div>
   <% end %>
 </div>
 
 <%= search_form_for @q, url: search_spots_path, html: {id: "detailed-search-form"},method: :get do |f| %>
-  <div class="search-field">
-    <%= f.label :name_cont, 'キーワード?' %>
-    <br>
-    <%= f.text_field :name_cont, placeholder: 'キーワードで探す', class: "search-field-input" %>
-  </div>
+  <div class="search-field-container">
+    <div class="search-field">
+      <%#= f.label :name_cont, 'キーワード' %>
+      <%= f.text_field :name_cont, placeholder: ' キーワードで探す', class: "search-field-input" %>
+    </div>
 
-  <div class="search-field">
-    <%= f.label :name_cont, 'カテゴリ?' %>
-    <br>
-    <%= select_tag "q[category_id_eq]",options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:q]&.[](:category_id_eq)), include_blank: "--カテゴリ--", class: "search-field-select" %>
+    <div class="search-field">
+      <%#= f.label :name_cont, 'カテゴリ' %>
+      <%= select_tag "q[category_id_eq]",options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:q]&.[](:category_id_eq)), include_blank: "-- カテゴリで検索 --", class: "search-field-select" %>
+    </div>
   </div>
 
   <div class="search-btn-field">
     <%= f.submit "検索", class: "search-btn", id: "search-button" %>
   </div>
   
-  <div class="search-btn-field">
-    <%= link_to "クリア", spots_path, class: "search-btn" %>
-  </div>
+  <button class="clear-btn">
+    <%= link_to "クリア", spots_path, class: "clear-btn-name" %>
+  </button>
 <% end %>
 
 
