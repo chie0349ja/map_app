@@ -17,7 +17,7 @@
 
     <div class="search-field">
       <%#= f.label :name_cont, 'カテゴリ' %>
-      <%= select_tag "q[category_id_eq]",options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:q]&.[](:category_id_eq)), include_blank: "-- カテゴリで検索 --", class: "search-field-select" %>
+      <%= select_tag "q[category_id_eq]",options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:q]&.[](:category_id_eq)), include_blank: "カテゴリで探す", class: "search-field-select" %>
     </div>
   </div>
 

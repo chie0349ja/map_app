@@ -248,13 +248,15 @@ h2 {
   border-style: solid;
   border-radius: 5px;
   width: 50vw;
+  color: darkolivegreen;
 }
 
 .search-field-select {
-  width: 40vw;
+  width: 50vw;
   border:#058f40;
   border-style: solid;
   border-radius: 5px;
+  color: darkolivegreen;
 }
 
 .search-btn {
