@@ -1,3 +1,8 @@
+.container-fluid{
+  background-color: #5b9c40;
+}
+
+
 .map-menu {
   display: flex;
   justify-content: space-between;
@@ -10,5 +15,5 @@
 
 a{
   text-decoration: none;
-  background-color: 5b9c40;
+  color: beige;
 }
