@@ -36,7 +36,7 @@
     <% @spots.in_groups_of(3, false) do |spot_group| %>
       <div class="row">
         <% spot_group.each do |spot| %> 
-          <div class="col-md-4">
+          <div class="col-md-4 my-3">
             <%= render spot %>
           </div>
         <% end %>
