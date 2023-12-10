@@ -53,6 +53,11 @@ a {
   align-items: center;
   font-size: 4vmin;
 }
+
+.habit-text {
+  max-width: 200px;
+}
+
 .list {
   padding: 5px;
 }
@@ -205,6 +210,9 @@ h2 {
 
 
 /* index_view  */
+.spot-image{
+  border-radius: 10px;
+}
 
 .purchase-btn {
   width: 85px;
@@ -290,11 +298,20 @@ h2 {
 }
 
 /* show_view */
+.geolonia {
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
 
 .spot-name {
   color: rgb(104, 29, 29);
   font-weight: bolder;
   font-size: 24px;
+}
+
+.image {
+  border-radius: 10px;
 }
 
 .spot-textarea {
@@ -308,7 +325,7 @@ h2 {
 
 .spot-url {
   overflow-wrap:break-word;
-  margin: 0px 10px 0px 10px;
+  margin: 15px;
 }
 
 .background-category1 {

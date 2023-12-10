@@ -1,24 +1,8 @@
-# README
+# 畑　-habit- 農場共有アプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://nojo-map-app.onrender.com
 
-Things you may want to cover:
 
-* Ruby version
+## アプリについて 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+このマップアプリは、全国のまだ行ったことない関連情報がマップ上で手軽にチェックできたり、共有したい情報をマッピングしてみんなで共有するためのアプリです。
