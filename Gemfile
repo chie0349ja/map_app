@@ -74,7 +74,7 @@ end
 gem "geo_scaffold"
 
 group :production do
-  gem 'pg'
+  gem 'unicorn'
 end
 
 
