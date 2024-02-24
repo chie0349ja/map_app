@@ -1,6 +1,7 @@
 lock '3.18.0'
 set :application, 'map_app'
 set :repo_url,  'git@github.com:chie0349ja/map_app.git'
+set :branch, 'main'
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 set :rbenv_type, :user
 set :rbenv_ruby, '3.2.2'
