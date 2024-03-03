@@ -2,9 +2,9 @@
 
 <div class="container">
   <% if @params[:q] %>
-  <div class="geolonia" data-geojson="/spots.json?q[name_cont]=<%= @params["q"]["name_cont"]%>&q[category_id_eq]=<%= @params["q"]["category_id_eq"] %>" style="height:300px;" data-geolocate-control="on"></div>
+  <div class="geolonia" data-geojson="/spots.json?q[name_cont]=<%= @params["q"]["name_cont"]%>&q[category_id_eq]=<%= @params["q"]["category_id_eq"] %>" data-geolocate-control="on"></div>
   <% else %>
-  <div class="geolonia" data-geojson="/spots.json" style="height:300px;" data-geolocate-control="on"></div>
+  <div class="geolonia" data-geojson="/spots.json" data-geolocate-control="on"></div>
   <% end %>
 </div>
 
