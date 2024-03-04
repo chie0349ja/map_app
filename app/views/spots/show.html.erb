@@ -18,7 +18,7 @@
     data-lat=<%= @spot.lat %>
     data-lng=<%= @spot.lng %>
     data-zoom=16
-    style="height:300px;"><%= marker_content(@spot) %></div>
+    style="height:350px;"><%= marker_content(@spot) %></div>
 
   <div class="btn-toolbar">
     <%if user_signed_in? && current_user.id == @spot.user_id %>
