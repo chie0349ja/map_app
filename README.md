@@ -12,4 +12,4 @@ https://nojo-map-app.onrender.com (旧Render）
 
 ## 今後の改善点
 - お気に入り登録機能
-- お気に入り一覧画面
+- お気に入り一覧画面（自分だけ見れる）
