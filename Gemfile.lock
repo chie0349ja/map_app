@@ -382,6 +382,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  mini_magick
   mysql2
   omniauth-line
   omniauth-rails_csrf_protection
