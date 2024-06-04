@@ -8,7 +8,7 @@
       <%= @spot.category.name %>
     </div>
     <div class="spot-name"><%= @spot.name %></div>
-    <div class="spot-image"><%= image_tag(@spot.photo, width: '100%', class:"image") %></div>
+    <div class="spot-image"><%= image_tag(@spot.photo, width: '350px', class:"image") %></div>
     <div class="spot-textarea"><%= simple_format @spot.value,width: '100%' %></div>
     <div class="spot-url"><%= link_to @spot.spots_url, @spot.spots_url %></div>
     <div class="">投稿者: <%= link_to(@spot.user.nickname,"/users/#{@spot.user.id}") %></div>
