@@ -379,6 +379,17 @@ h2 {
   margin-top: 5px;
 }
 
+.background-category5 {
+  background-color: #e407bf; 
+  width: 100px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 2px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
 
 /* user */
 

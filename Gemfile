@@ -103,3 +103,5 @@ gem 'dotenv-rails'
 gem 'mini_magick'
 
 gem 'pg'
+
+

@@ -1,6 +1,16 @@
 <div id="<%= dom_id spot %>">
   <div class="contents">
-    <div class="spot-category <%= 'background-category1' if spot.category.name == '農園' %> <%= 'background-category2' if spot.category.name == '産直店' %> <%= 'background-category3' if spot.category.name == '園芸店'  %> <%= 'background-category4' if spot.category.name == 'レストラン' %>">
+    <div class="spot-category <%=
+      case spot.category.name
+      when '農園' then 'background-category1'
+      when '産直店' then 'background-category2'
+      when '園芸店' then 'background-category3'
+      when 'レストラン' then 'background-category4'
+      when 'アウトドア' then 'background-category5'
+      else ''
+      end
+    %>">
+
       <%= spot.category.name %>
     </div>
     <div class="spots-name">
@@ -8,7 +18,7 @@
     </div>
     <div>
       <%= link_to spot do %>
-        <%= image_tag(url_for(spot.photo), width: '100%', class:"spot-image") if spot.photo.present? %>
+        <%= image_tag spot.photo, width: 300, class:"spot-image" if spot.photo.present? %>
       <% end %>
     </div>
   </div>
