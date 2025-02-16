@@ -1,8 +1,6 @@
-# 畑　-habit- 農場共有アプリ
+# 畑  -habit- 食・農・游 共有アプリ
 
-https://nojo-map.net/
-
-https://nojo-map-app.onrender.com (旧Render）
+https://nojo-map-app.onrender.com
 
 
 ## アプリについて 
