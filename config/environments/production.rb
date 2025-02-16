@@ -37,7 +37,14 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
+
+  amazon:
+    service: S3
+    region: ap-northeast-1
+    bucket: nojomap001
+    access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+    secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
