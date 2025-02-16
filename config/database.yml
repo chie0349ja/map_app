@@ -11,6 +11,7 @@ development:
   password:
   host: localhost
   database: map_app_development
+  socket: /var/run/mysqld/mysqld.sock
 
 test:
   <<: *default
@@ -19,6 +20,7 @@ test:
   password:
   host: localhost
   database: map_app_test
+  socket: /var/run/mysqld/mysqld.sock
 
 production:
   <<: *default
