@@ -4,7 +4,16 @@
   <h2 class="H2">登録内容の詳細</h2>
 
   <%= form_with(model: @spot, local: true) do |form| %>
-    <div class="spot-category <%= 'background-category1' if @spot.category.name == '農園' %> <%= 'background-category2' if @spot.category.name == '産直店' %> <%= 'background-category3' if @spot.category.name == '園芸店'  %> <%= 'background-category4' if @spot.category.name == 'レストラン' %>">
+    <div class="spot-category <%=
+      case @spot.category.name
+      when '農園' then 'background-category1'
+      when '産直店' then 'background-category2'
+      when '園芸店' then 'background-category3'
+      when 'レストラン' then 'background-category4'
+      when 'アウトドア' then 'background-category5'
+      else ''
+      end
+    %>">
       <%= @spot.category.name %>
     </div>
     <div class="spot-name"><%= @spot.name %></div>
