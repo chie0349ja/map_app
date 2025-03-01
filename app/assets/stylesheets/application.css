@@ -14,12 +14,120 @@
  *= require_self
  */
 
+/* 全体レイアウト */
+.map-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh; /* 画面いっぱいにする例 */
+  overflow: hidden; /* はみ出し非表示 */
+  margin: 0;
+  padding: 0;
+  display: flex; /* sidebar と map-wrap を兄弟要素にするならFlexでもOK */
+}
 
- .geolonia {
-  height:350px;
-  
- }
+/* サイドバー本体 */
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 280px;               /* サイドバーの幅（お好み） */
+  height: 100%;              /* 縦は100% (親要素.map-containerに依存) */
+  background-color: #fff;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.2);
 
+  /* ---------------------
+     初期状態では画面外に隠す
+     transform で左に引っ込める
+     transition でアニメーションする
+  --------------------- */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;   /* 地図など他要素の上に重ねるなら大きめ指定 */
+}
+
+/* サイドバーが .open クラスを持つ時にスライドインする */
+.sidebar.open {
+  transform: translateX(0); /* 画面内にスライド */
+}
+
+/* サイドバー内部コンテンツ */
+.sidebar-inner {
+  padding: 1rem;
+  overflow-y: auto; /* 中身が多い時はスクロール */
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.spot-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ccc;           /* カード枠 */
+  border-radius: 8px;               /* 角丸 */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* ささやかな影 */
+  margin-bottom: 1rem;             /* カード間の余白 */
+  padding: 0.5rem;                  /* カード内余白 */
+}
+
+.spot-card-header {
+  flex: 1; 
+  margin-right: 1rem;
+}
+
+.spot-card-body {
+  flex: 0 0 auto;              /* 必要に応じて横幅を自動または固定 */
+  display: flex;
+  align-items: center;         /* 画像の上下位置を中央揃え */
+}
+
+.spot-thumbnail {
+  text-align: center; /* 画像を中央寄せに */
+  margin-bottom: 0.5rem;
+}
+
+.spot-image {
+  max-width: 60px;  /* 縦幅は自動等にしたい場合 max-width で調整 */
+  height: auto;
+  border-radius: 4px; /* 画像を少し角丸に */
+  display: inline-block; 
+}
+
+/* メイン地図表示部分 */
+.map-wrap {
+  flex: 1; /* サイドバーを絶対配置にしているので、
+              ここは自動で幅を埋める */
+  position: relative;
+}
+
+/* サイドバー開閉ボタン */
+.toggle-btn {
+  position: absolute; 
+  top: 1rem; 
+  left: 1rem; 
+  z-index: 20; 
+  background-color: #058f40;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* 地図を全域に広げる */
+.map-wrap .geolonia {
+  width: 100%;
+  height: 100%;
+}
+
+/* 既存のクラスにも合わせて、一覧やフォーム等を整える */
+.search-field-container {
+  margin-bottom: 1rem;
+}
+
+.new-spot-btn {
+  margin-top: 1rem;
+}
 
 a {
   text-decoration: none;
@@ -246,12 +354,10 @@ h2 {
 }
 
 .spot_search {
-  display: flex;
-  justify-content: space-around;
-  margin:5px;
+  margin-top: 50px;
+  padding-bottom: 15px;
   color: darkgreen;
   align-items: center;
-
 }
 
 .search-field {
@@ -262,33 +368,41 @@ h2 {
   border:#058f40;
   border-style: solid;
   border-radius: 5px;
-  width: 50vw;
+  width: 80%;
   color: darkolivegreen;
 }
 
 .search-field-select {
-  width: 50vw;
-  border:#058f40;
-  border-style: solid;
-  border-radius: 5px;
-  color: darkolivegreen;
+  display: block;
+  width: 80%;
+  margin-bottom: 0.5rem;
+  padding: 0.4rem;
+}
+
+.search-btn-field-container{
+  display: flex;
+  justify-content: end;
 }
 
 .search-btn {
-  padding: 5px 5px 5px 5px;
+  padding: 0.4rem 0.8rem;
   background-color: #1455b6;
   color: white;
   border-style: solid;
   border-radius: 5px;
-  width: 15vw;
 }
+
 .clear-btn {
-  padding: 5px 5px 5px 5px;
+  padding: 0.4rem 0.8rem;
   background-color: #1455b6;
   color: white;
   border-style: solid;
   border-radius: 5px;
-  width: 15vw;
+  margin-left: 0.5rem;
+}
+
+.spot-list-item {
+  margin-bottom: 1rem;
 }
 
 .clear-btn-name {

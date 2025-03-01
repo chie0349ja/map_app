@@ -1,6 +1,7 @@
-<div id="<%= dom_id spot %>">
-  <div class="contents">
-    <div class="spot-category <%=
+<div id="<%= dom_id spot %>" class="spot-card">
+  <!-- カード上部（カテゴリー帯＋タイトル） -->
+  <div class="spot-card-header">
+    <div class="spot-category <%= 
       case spot.category.name
       when '農園' then 'background-category1'
       when '産直店' then 'background-category2'
@@ -10,16 +11,22 @@
       else ''
       end
     %>">
-
       <%= spot.category.name %>
     </div>
+
     <div class="spots-name">
       <%= link_to spot.name, spot_path(spot) %>
     </div>
-    <div>
-      <%= link_to spot do %>
-        <%= image_tag spot.photo, width: 300, class:"spot-image" if spot.photo.present? %>
-      <% end %>
-    </div>
+  </div>
+
+  <!-- カード本文（画像など） -->
+  <div class="spot-card-body">
+    <% if spot.photo.present? %>
+      <div class="spot-thumbnail">
+        <%= link_to spot do %>
+          <%= image_tag spot.photo, class: "spot-image" %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

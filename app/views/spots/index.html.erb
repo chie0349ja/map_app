@@ -1,54 +1,87 @@
 <%= render "shared/header" %>
 
-<div class="container">
-  <% if @params[:q] %>
-  <div class="geolonia" data-geojson="/spots.json?q[name_cont]=<%= @params["q"]["name_cont"]%>&q[category_id_eq]=<%= @params["q"]["category_id_eq"] %>" data-geolocate-control="on"></div>
-  <% else %>
-  <div class="geolonia" data-geojson="/spots.json" data-geolocate-control="on"></div>
-  <% end %>
-</div>
+<div class="map-container">
+  <!-- ▼ スライドサイドバー (初期状態は非表示) ▼ -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+      <!-- ▼ 検索フォーム、一覧、登録ボタンなど ▼ -->
 
-<%= search_form_for @q, url: search_spots_path, html: {id: "detailed-search-form"},method: :get do |f| %>
-  <div class="search-field-container">
-    <div class="search-field">
-      <%#= f.label :name_cont, 'キーワード' %>
-      <%= f.text_field :name_cont, placeholder: ' キーワードで探す', class: "search-field-input" %>
-    </div>
+      <%= search_form_for @q, url: search_spots_path, html: { id: "detailed-search-form" }, method: :get do |f| %>
+        <div class="search-field-container">
+          <div class="search-field">
+            <%= f.text_field :name_cont, placeholder: ' キーワードで探す', class: "search-field-input" %>
+          </div>
+          <div class="search-field">
+            <%= select_tag "q[category_id_eq]",
+                options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:q]&.[](:category_id_eq)),
+                include_blank: "カテゴリで探す",
+                class: "search-field-select"
+            %>
+          </div>
+        </div>
+        <div class="search-btn-field-container">
+          <div class="search-btn-field">
+            <%= f.submit "検索", class: "search-btn", id: "search-button" %>
+          </div>
+          <button class="clear-btn">
+            <%= link_to "クリア", spots_path, class: "clear-btn-name" %>
+          </button>
+        </div>
+      <% end %>
 
-    <div class="search-field">
-      <%#= f.label :name_cont, 'カテゴリ' %>
-      <%= select_tag "q[category_id_eq]",options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:q]&.[](:category_id_eq)), include_blank: "カテゴリで探す", class: "search-field-select" %>
-    </div>
-  </div>
-
-  <div class="search-btn-field">
-    <%= f.submit "検索", class: "search-btn", id: "search-button" %>
-  </div>
-  
-  <button class="clear-btn">
-    <%= link_to "ｸﾘｱ", spots_path, class: "clear-btn-name" %>
-  </button>
-<% end %>
-
-
-<div class="container"> 
-  <div id="spots">
-    <% @spots.in_groups_of(3, false) do |spot_group| %>
-      <div class="row">
-        <% spot_group.each do |spot| %> 
-          <div class="col-md-4 my-3">
-            <%= render spot %>
+      <div id="spots">
+        <% @spots.in_groups_of(3, false) do |spot_group| %>
+          <div class="row">
+            <% spot_group.each do |spot| %>
+              <div class="spot-list-item">
+                <%= render spot %>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
-    <% end %>    
+    </div>
+    <!-- ボタン等で閉じる場合は、ここにも閉じるボタンを置ける -->
   </div>
-</div>
+  <!-- ▲ スライドサイドバー ▲ -->
 
-<%= link_to(new_spot_path,class: "purchase-btn") do %>
-  <span class="purchase-btn-text">登録する</span>
-  <%= image_tag "icon_new.png", size: "185x50", class: "purchase-btn-icon" %>
-<% end %>
+  <!-- ▼ メインコンテンツ (地図表示) ▼ -->
+  <div class="map-wrap">
+    <!-- サイドバー開閉トグルボタンを画面上部に配置（例） -->
+    <button class="toggle-btn" id="toggleSidebarBtn">メニュー</button>
+
+    <% if @params[:q] %>
+      <div class="geolonia"
+        data-geojson="/spots.json?q[name_cont]=<%= @params['q']['name_cont'] %>&q[category_id_eq]=<%= @params['q']['category_id_eq'] %>"
+        data-geolocate-control="on">
+      </div>
+    <% else %>
+      <div class="geolonia"
+        data-geojson="/spots.json"
+        data-geolocate-control="on">
+      </div>
+    <% end %>
+    <div class="new-spot-btn">
+      <%= link_to(new_spot_path, class: "purchase-btn") do %>
+        <span class="purchase-btn-text">登録する</span>
+        <%= image_tag "icon_new.png", size: "185x50", class: "purchase-btn-icon" %>
+      <% end %>
+    </div>
+  </div>
+  <!-- ▲ メインコンテンツ ▲ -->
+</div>
 
 <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>
 
+<!-- サイドバートグル用の簡単なJS -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toggleSidebarBtn');
+    const sidebar = document.getElementById('sidebar');
+
+    toggleBtn.addEventListener('click', function() {
+      // open クラスの有無で開閉を制御する例
+      sidebar.classList.toggle('open');
+    });
+  });
+</script>
