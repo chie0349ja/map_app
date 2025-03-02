@@ -4,7 +4,7 @@
   <!-- ▼ スライドサイドバー (初期状態は非表示) ▼ -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-inner">
-      <!-- ▼ 検索フォーム、一覧、登録ボタンなど ▼ -->
+      <!-- ▼ 検索フォーム、一覧 ▼ -->
 
       <%= search_form_for @q, url: search_spots_path, html: { id: "detailed-search-form" }, method: :get do |f| %>
         <div class="search-field-container">
@@ -41,7 +41,7 @@
         <% end %>
       </div>
     </div>
-    <!-- ボタン等で閉じる場合は、ここにも閉じるボタンを置ける -->
+    <!-- ▲ 検索フォーム、一覧 ▲ -->
   </div>
   <!-- ▲ スライドサイドバー ▲ -->
 
@@ -75,13 +75,14 @@
 
 <!-- サイドバートグル用の簡単なJS -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('turbo:load', function() {
     const toggleBtn = document.getElementById('toggleSidebarBtn');
     const sidebar = document.getElementById('sidebar');
 
-    toggleBtn.addEventListener('click', function() {
-      // open クラスの有無で開閉を制御する例
-      sidebar.classList.toggle('open');
-    });
+    if (toggleBtn && sidebar) {
+      toggleBtn.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
+      });
+    }
   });
 </script>

@@ -73,6 +73,16 @@
 .spot-card-header {
   flex: 1; 
   margin-right: 1rem;
+  width: 60%;
+}
+
+
+.spots-name {
+  /* 親要素の幅に合わせて切り取る */
+  display: block;           /* inline要素だとmax-widthが効きにくいので block や inline-block に */
+  width: 100%;              /* カード全体が狭い場合は適宜パーセントや固定幅に変えて調整 */
+  white-space: normal;      /* 折り返しで表示 */
+  word-break: break-word;
 }
 
 .spot-card-body {
