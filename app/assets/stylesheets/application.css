@@ -18,7 +18,7 @@
 .map-container {
   position: relative;
   width: 100vw;
-  height: 100vh; /* 画面いっぱいにする例 */
+  height: 90vh; /* 画面いっぱいにする例 */
   overflow: hidden; /* はみ出し非表示 */
   margin: 0;
   padding: 0;
@@ -53,6 +53,7 @@
 /* サイドバー内部コンテンツ */
 .sidebar-inner {
   padding: 1rem;
+  margin-top: 55px;
   overflow-y: auto; /* 中身が多い時はスクロール */
   height: 100%;
   box-sizing: border-box;
@@ -364,7 +365,6 @@ h2 {
 }
 
 .spot_search {
-  margin-top: 50px;
   padding-bottom: 15px;
   color: darkgreen;
   align-items: center;
