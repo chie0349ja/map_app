@@ -1,11 +1,10 @@
 <%= render "shared/header" %>
 
-<div class="map-container">
+<div class="map-container" data-controller="sidebar">
   <!-- ▼ スライドサイドバー (初期状態は非表示) ▼ -->
-  <div class="sidebar" id="sidebar">
+  <div class="sidebar" id="sidebar" data-sidebar-target="sidebar">
     <div class="sidebar-inner">
       <!-- ▼ 検索フォーム、一覧 ▼ -->
-
       <%= search_form_for @q, url: search_spots_path, html: { id: "detailed-search-form" }, method: :get do |f| %>
         <div class="search-field-container">
           <div class="search-field">
@@ -48,7 +47,7 @@
   <!-- ▼ メインコンテンツ (地図表示) ▼ -->
   <div class="map-wrap">
     <!-- サイドバー開閉トグルボタンを画面上部に配置（例） -->
-    <button class="toggle-btn" id="toggleSidebarBtn">メニュー</button>
+    <button class="toggle-btn" id="toggleSidebarBtn" data-action="click->sidebar#toggle">メニュー</button>
 
     <% if @params[:q] %>
       <div class="geolonia"
@@ -72,17 +71,3 @@
 </div>
 
 <script type="text/javascript" src="https://cdn.geolonia.com/v1/embed?geolonia-api-key=<%= ENV['MAP_API_KEY'] %>"></script>
-
-<!-- サイドバートグル用の簡単なJS -->
-<script>
-  document.addEventListener('turbo:load', function() {
-    const toggleBtn = document.getElementById('toggleSidebarBtn');
-    const sidebar = document.getElementById('sidebar');
-
-    if (toggleBtn && sidebar) {
-      toggleBtn.addEventListener('click', function() {
-        sidebar.classList.toggle('open');
-      });
-    }
-  });
-</script>
