@@ -1,5 +1,5 @@
 <%= render "shared/header" %>
-<div class="container">
+<div class="container" data-controller="confirm-leave">
   <h2 class="H2">新規スポット登録</h2>
   <p class="required"><span><%= image_tag("tomato.png", class:"tomato-icon") %></span>は必須項目です</p>
 
@@ -7,7 +7,7 @@
 
   <br>
 
-    <%= link_to(root_path,class: "purchase-btn") do %>
+    <%= link_to(root_path, class: "purchase-btn", data: { action: "click->confirm-leave#confirmHome" }) do %>
       <span class="purchase-btn-text">HOMEへ</span>
       <%= image_tag "home.png", size: "185x50", class: "purchase-btn-icon" %>
     <% end %>
